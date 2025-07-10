@@ -14,11 +14,11 @@ This is part of my journey to become a software embedded engineer, building upon
 
 ## Hardware
 
-• **Board**: STM32F446RE Nucleo
-• **Motion Sensor**: PIR (Passive Infrared) sensor
-• **Sound Sensor**: Microphone module with analog output
-• **Status Indicator**: RGB LED
-• **Additional**: Connecting wires and breadboard
+* **Board**: STM32F446RE Nucleo
+* **Motion Sensor**: PIR (Passive Infrared) sensor
+* **Sound Sensor**: Microphone module with analog output
+* **Status Indicator**: RGB LED
+* **Additional**: Connecting wires and breadboard
 
 ## Approach
 
