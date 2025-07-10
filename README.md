@@ -14,11 +14,11 @@ This is part of my journey to become a software embedded engineer, building upon
 
 ## Hardware
 
-• **Board**: STM32F446RE Nucleo
-• **Motion Sensor**: PIR (Passive Infrared) sensor
-• **Sound Sensor**: Microphone module with analog output
-• **Status Indicator**: RGB LED
-• **Additional**: Connecting wires and breadboard
+* **Board**: STM32F446RE Nucleo
+* **Motion Sensor**: PIR (Passive Infrared) sensor
+* **Sound Sensor**: Microphone module with analog output
+* **Status Indicator**: RGB LED
+* **Additional**: Connecting wires and breadboard
 
 ## Approach
 
@@ -31,17 +31,17 @@ This implementation uses direct register manipulation which provides:
 
 ### Key Register Operations Used
 
-• **RCC registers** - Clock enable for GPIO and ADC peripherals
-• **GPIO MODER** - Pin mode configuration (input/output/analog)
-• **GPIO ODR** - Digital output control for LED states
-• **ADC registers** - Direct analog-to-digital conversion setup and reading
-• **USART registers** - Serial communication for debugging output
+* **RCC registers** - Clock enable for GPIO and ADC peripherals
+* **GPIO MODER** - Pin mode configuration (input/output/analog)
+* **GPIO ODR** - Digital output control for LED states
+* **ADC registers** - Direct analog-to-digital conversion setup and reading
+* **USART registers** - Serial communication for debugging output
 
 ## Features
 
-• **Motion Detection**: Real-time PIR sensor monitoring
-• **Sound Level Monitoring**: Analog sound level detection with threshold settings
-• **RGB LED Status Indication**:
+* **Motion Detection**: Real-time PIR sensor monitoring
+* **Sound Level Monitoring**: Analog sound level detection with threshold settings
+* **RGB LED Status Indication**:
   - **Green**: Normal operation (no motion/sound detected)
   - **Red**: Motion detected
   - **Blue**: Sound detected above threshold
@@ -75,11 +75,11 @@ This project utilizes:
 
 ## Learning Objectives
 
-• Understanding multi-sensor integration with STM32
-• Direct register manipulation for ADC configuration
-• GPIO control without abstraction layers
-• USART configuration for debugging output
-• Real-time embedded system design principles
+* Understanding multi-sensor integration with STM32
+* Direct register manipulation for ADC configuration
+* GPIO control without abstraction layers
+* USART configuration for debugging output
+* Real-time embedded system design principles
 
 ## Demo
 
