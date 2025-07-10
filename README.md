@@ -84,11 +84,4 @@ This project utilizes:
 
 [Demo Video Link will be added here]
 
-## Building and Running
-
-1. Open the project in STM32CubeIDE
-2. Build the project (Ctrl+B)
-3. Flash to the STM32F446RE board
-4. Connect sensors according to pin configuration in main.h
-5. Monitor the RGB LED for real-time status feedback
 
