@@ -14,11 +14,11 @@ This is part of my journey to become a software embedded engineer, building upon
 
 ## Hardware
 
-• **Board**: STM32F446RE Nucleo
-• **Motion Sensor**: PIR (Passive Infrared) sensor
-• **Sound Sensor**: Microphone module with analog output
-• **Status Indicator**: RGB LED
-• **Additional**: Connecting wires and breadboard
+* **Board**: STM32F446RE Nucleo
+* **Motion Sensor**: PIR (Passive Infrared) sensor
+* **Sound Sensor**: Microphone module with analog output
+* **Status Indicator**: RGB LED
+* **Additional**: Connecting wires and breadboard
 
 ## Approach
 
@@ -39,10 +39,13 @@ This implementation uses direct register manipulation which provides:
 
 ## Features
 
-• **Motion Detection**: Real-time PIR sensor monitoring
-• **Sound Level Monitoring**: Analog sound level detection with threshold settings
-• **RGB LED Status Indication**:
+* **Motion Detection**: Real-time PIR sensor monitoring
+* **Sound Level Monitoring**: Analog sound level detection with threshold settings
+* **RGB LED Status Indication**:
   - **Green**: Normal operation (no motion/sound detected)
+  - **Red**: Motion detected
+  - **Blue**: Sound detected above threshold
+  - **System feedback**: Real-time UART debugging output
   - **Red**: Motion detected
   - **Blue**: Sound detected above threshold
   - **System feedback**: Real-time UART debugging output
