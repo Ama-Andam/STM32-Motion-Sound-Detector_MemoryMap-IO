@@ -8,7 +8,7 @@ This project implements a comprehensive sensor monitoring system that:
 - Detects motion using PIR sensors
 - Monitors sound levels through microphone input
 - Provides real-time status feedback via RGB LED
-- Utilizes STM32 HAL functions for peripheral control
+- Uses only direct register access (memory-mapped I/O) for peripheral control (no STM32 HAL functions)
 
 This is part of my journey to become a software embedded engineer, building upon and enhancing concepts from my undergraduate embedded systems studies.
 
@@ -22,18 +22,20 @@ This is part of my journey to become a software embedded engineer, building upon
 
 ## Approach
 
-This implementation uses STM32 HAL functions which provide:
-- High-level abstraction for ADC and GPIO operations
-- Interrupt-driven sensor reading
-- Timer-based RGB LED control
-- Built-in error handling and safety checks
+This implementation uses direct register manipulation which provides:
+- Low-level hardware control
+- Better understanding of microcontroller internals
+- Smaller code footprint
+- Direct access to peripheral registers
+- No abstraction layer dependencies
 
-### Key HAL Functions Used
+### Key Register Operations Used
 
-• `HAL_ADC_Start_IT()` - For sound level analog reading
-• `HAL_GPIO_ReadPin()` - For PIR motion detection
-• `HAL_TIM_PWM_Start()` - For RGB LED color control
-• `HAL_GPIO_WritePin()` - For digital output control
+• **RCC registers** - Clock enable for GPIO and ADC peripherals
+• **GPIO MODER** - Pin mode configuration (input/output/analog)
+• **GPIO ODR** - Digital output control for LED states
+• **ADC registers** - Direct analog-to-digital conversion setup and reading
+• **USART registers** - Serial communication for debugging output
 
 ## Features
 
@@ -41,10 +43,9 @@ This implementation uses STM32 HAL functions which provide:
 • **Sound Level Monitoring**: Analog sound level detection with threshold settings
 • **RGB LED Status Indication**:
   - **Green**: Normal operation (no motion/sound detected)
-  - **Yellow**: Motion detected only
-  - **Red**: Sound detected only
-  - **Blue**: Both motion and sound detected
-  - **Purple**: System in calibration mode
+  - **Red**: Motion detected
+  - **Blue**: Sound detected above threshold
+  - **System feedback**: Real-time UART debugging output
 
 ## Project Structure
 
@@ -52,12 +53,8 @@ This implementation uses STM32 HAL functions which provide:
 ├── Core/
 │   ├── Inc/           # Header files
 │   │   ├── main.h
-│   │   ├── stm32f4xx_hal_conf.h
-│   │   └── stm32f4xx_it.h
-│   ├── Src/           # Source files
 │   │   ├── main.c     # Main application logic
-│   │   ├── stm32f4xx_hal_msp.c
-│   │   └── stm32f4xx_it.c
+│   └── Startup/       # Startup files
 │   └── Startup/       # Startup files
 ├── Drivers/           # STM32 HAL drivers
 ├── Debug/            # Compiled binaries and debug files
@@ -67,17 +64,17 @@ This implementation uses STM32 HAL functions which provide:
 ## Implementation Details
 
 This project utilizes:
-- **ADC**: For analog sound level reading with interrupt-based conversion
-- **GPIO**: For PIR sensor digital input and RGB LED control
-- **Timers**: For PWM generation for smooth RGB color transitions
-- **Interrupts**: For real-time sensor response
+- **ADC**: For analog sound level reading with direct register access (no HAL)
+- **GPIO**: For PIR sensor digital input and RGB LED control (no HAL)
+- **USART**: For real-time debugging output over serial (no HAL)
+- **Custom delay**: CPU-cycle based timing without timer peripherals
 
 ## Learning Objectives
 
 • Understanding multi-sensor integration with STM32
-• ADC configuration for analog sensor reading
-• GPIO interrupt handling for digital sensors
-• PWM control for RGB LED color mixing
+• Direct register manipulation for ADC configuration
+• GPIO control without abstraction layers
+• USART configuration for debugging output
 • Real-time embedded system design principles
 
 ## Demo
