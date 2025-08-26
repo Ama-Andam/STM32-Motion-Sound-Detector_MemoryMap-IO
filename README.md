@@ -31,11 +31,11 @@ This implementation uses direct register manipulation which provides:
 
 ### Key Register Operations Used
 
-• **RCC registers** - Clock enable for GPIO and ADC peripherals
-• **GPIO MODER** - Pin mode configuration (input/output/analog)
-• **GPIO ODR** - Digital output control for LED states
-• **ADC registers** - Direct analog-to-digital conversion setup and reading
-• **USART registers** - Serial communication for debugging output
+* **RCC registers** - Clock enable for GPIO and ADC peripherals
+* **GPIO MODER** - Pin mode configuration (input/output/analog)
+* **GPIO ODR** - Digital output control for LED states
+* **ADC registers** - Direct analog-to-digital conversion setup and reading
+* **USART registers** - Serial communication for debugging output
 
 ## Features
 
